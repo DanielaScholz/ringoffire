@@ -5,7 +5,7 @@
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
 
-    background-color: orange;
+    background-color: grey;
 
     span{
         font-size: 24px;
@@ -13,9 +13,13 @@
     }
 
     img{
-        height: 100px;
+        height: 70px;
         width: auto;
         object-fit: cover;
         border-radius: 100%;
     }
+}
+
+.player-active{
+    background-color: orange;
 }
