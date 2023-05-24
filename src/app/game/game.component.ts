@@ -10,18 +10,31 @@ import { Game } from 'src/models/game';
 export class GameComponent implements OnInit {
   cardStack: number[] = [0, 1, 2, 3];
   pickCardAnimation = false;
-  game = new Game();
+  currentCard: string = '';
+  game: Game;
+  
 
   ngOnInit(): void {
-    console.log(this.game);
+    this.newGame();
   }
 
   newGame(){
-    this.game;
+    this.game = new Game();
+    console.log(this.game);
   }
 
   pickCard() {
-    this.pickCardAnimation = true;
+    if (!this.pickCardAnimation) { 
+      this.currentCard =this.game.stack.pop(); //pop()removes the last card of the stack
+      console.log(this.currentCard);
+      console.log(this.game);
+      this.pickCardAnimation = true;
+  
+      setTimeout(() => {
+        this.game.playedCards.push(this.currentCard); //this array collects all played cards
+        this.pickCardAnimation = false;
+      }, 1000); 
+    }
   }
 
 }
