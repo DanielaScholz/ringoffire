@@ -6,10 +6,14 @@
     width: 100vw;
     max-width: 100%;
     background-image: url(../../assets/img/board.jpg);
+    background-repeat: round;
 }
 
 .card-stack{
     position: relative;
+    height: 180px;
+    width: 140px;
+
     img{
         position: absolute;
         width: 120px;
@@ -27,12 +31,12 @@
 
 .played-card{
     right: 20px;
-    transform: scale(1.2) translateX(140px) translateY(-180px) rotate(20deg);
+    transform: scale(1.2) translateX(210px) translateY(-110px) rotate(20deg);
 }
 
 .pick-card{
     animation: pick-card-animation 1s ease-in-out;
-    transform: scale(1.2) translateX(140px) translateY(-180px) rotate(20deg);
+    transform: scale(1.2) translateX(210px) translateY(-110px) rotate(20deg);
 }
 
 @keyframes pick-card-animation {
@@ -46,7 +50,7 @@
         transform: scale(1.7);
     }
     100% {
-        transform: scale(1.2) translateX(140px) translateY(-180px) rotate(20deg);
+        transform: scale(1.2) translateX(210px) translateY(-110px) rotate(20deg);
     }
 }
 
@@ -60,3 +64,5 @@
     right: 32px;
     bottom: 32px;
 }
+
+

@@ -3,7 +3,6 @@
     [ngStyle]="{'top.px': 100 +(i*90)}"
     [playerName]="player"
     [playerActive] ="i == game.currentPlayer">
-    
 </app-player>
 
 
@@ -29,3 +28,5 @@
 <button (click)="openDialog()" mat-fab matTooltip="Primary" color="primary" class="btn-add">
     <mat-icon>add</mat-icon>
 </button>
+
+<app-game-rules [card]="currentCard"></app-game-rules>

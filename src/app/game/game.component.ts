@@ -25,15 +25,18 @@ export class GameComponent implements OnInit {
 
   newGame(){
     this.game = new Game();
-    console.log(this.game);
+    // console.log(this.game);
   }
 
   pickCard() {
     if (!this.pickCardAnimation) { 
       this.currentCard =this.game.stack.pop(); //pop()removes the last card of the stack
-      console.log(this.currentCard);
-      console.log(this.game);
+      // console.log(this.currentCard);
+      // console.log(this.game);
       this.pickCardAnimation = true;
+
+      this.game.currentPlayer++;
+      this.game.currentPlayer = this.game.currentPlayer % this.game.players.length;
   
       setTimeout(() => {
         this.game.playedCards.push(this.currentCard); //this array collects all played cards
@@ -41,12 +44,15 @@ export class GameComponent implements OnInit {
       }, 1000); 
     }
   }
+  
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
 
     dialogRef.afterClosed().subscribe((name:string) => {
-      this.game.players.push(name)
+      if (name && name.length > 0) {
+        this.game.players.push(name)
+      }
     });
   }
 
