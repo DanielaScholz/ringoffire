@@ -1,68 +1,178 @@
-.gamefield{
+.gamefield {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
     width: 100vw;
     max-width: 100%;
-    background-image: url(../../assets/img/board.jpg);
-    background-repeat: round;
+    background-image: url(../../assets/img/wood.jpg);
+    background-size: cover;
 }
 
-.card-stack{
-    position: relative;
-    height: 180px;
-    width: 140px;
+.overlay-gamefield {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+    opacity: 0.2;
+    background-image: url(../../assets/img/stains.jpg);
+    background-size: cover;
+}
 
-    img{
+.card-stack {
+    position: relative;
+    top: -47px;
+    z-index: 1;
+
+    img {
         position: absolute;
         width: 120px;
     }
 }
 
-.top-card{
+.top-card {
     cursor: pointer;
     transition: all 125ms ease-in-out;
 
-    &:hover{
+    &:hover {
         transform: translateY(-10px);
     }
 }
 
-.played-card{
+.played-card {
     right: 20px;
-    transform: scale(1.2) translateX(210px) translateY(-110px) rotate(20deg);
+    transform: scale(1.2) translateX(160px) translateY(-102px) rotate(-20deg);
 }
 
-.pick-card{
+.pick-card {
     animation: pick-card-animation 1s ease-in-out;
-    transform: scale(1.2) translateX(210px) translateY(-110px) rotate(20deg);
+    transform: scale(1.2) translateX(160px) translateY(-102px) rotate(-20deg);
 }
 
 @keyframes pick-card-animation {
     0% {
         transform: scale(1);
     }
+
     40% {
         transform: scale(1.7);
     }
+
     60% {
         transform: scale(1.7);
     }
+
     100% {
-        transform: scale(1.2) translateX(210px) translateY(-110px) rotate(20deg);
+        transform: scale(1.2) translateX(160px) translateY(-102px) rotate(-20deg);
     }
 }
 
-.player-position{
+.btn-add {
+    margin-left: 32px;
+    background-color: orange;
+}
+
+@media (max-width: 720px) {
+    .btn-add{
+        margin-left: 0;
+        margin-right: 32px;
+    }
+    
+}
+
+app-player,
+app-player-mobile {
+    cursor: pointer;
+    z-index: 1;
+}
+
+.desktop-scroll-container {
+    overflow-y: auto;
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.mobile-scroll-container {
+    overflow-x: auto;
+    position: absolute;
+    display: flex;
+    left: 0;
     right: 0;
+    height: 80px;
+    z-index: 1;
 }
 
-.btn-add{
+/* width */
+::-webkit-scrollbar {
+    width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
+
+.preloadCard {
+    display: none;
+}
+
+.game-over-screen {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-image: url(../../assets/img/startscreen.png);
+    background-size: cover;
+
+    h1 {
+        font-size: 40px;
+        font-weight: bold;
+        letter-spacing: 15px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    span {
+        margin-top: 50px;
+    }
+}
+
+app-game-rules {
+    width: 100%;
+}
+
+.rules-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     position: absolute;
-    right: 32px;
     bottom: 32px;
+    right: 32px;
+    left: 270px;
+
+    @media (max-width: 720px) {
+        background-color: white;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
 }
-
-

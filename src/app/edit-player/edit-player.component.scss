@@ -1,0 +1,12 @@
+.profil-image-container{
+    display: flex;
+    justify-content: center;
+}
+
+.profil-image{
+    height: 50px;
+    width: auto;
+    border-radius: 100%;
+    margin: 5px;
+    cursor: pointer;
+}

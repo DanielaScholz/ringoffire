@@ -1,8 +1,11 @@
 export class Game {
     public players: string[] = [];
+    public playerImage: string[] = [];
     public stack: string[] = [];
     public playedCards: string[] = [];
     public currentPlayer: number = 0;
+    public pickCardAnimation = false;
+    public currentCard: string = '';
 
 
     constructor(){
@@ -13,7 +16,20 @@ export class Game {
             this.stack.push('spade_'+ i);
         }
         this.shuffleStack();
-    }   
+    }
+    
+
+    public convertIntoJSON(){
+        return {
+            players: this.players,
+            playerImage: this.playerImage,
+            stack: this.stack,
+            playedCards: this.playedCards,
+            currentPlayer: this.currentPlayer,
+            pickCardAnimation: this.pickCardAnimation,
+            currentCard: this.currentCard
+        }
+    }
 
 
     private shuffleStack(): void {
@@ -25,10 +41,7 @@ export class Game {
             }
             return shuffledArray;
         }
-
         this.stack = shuffleArray(this.stack);
     }
-
-
 }
 
